@@ -3,9 +3,9 @@ const baseUrl = "/api/notes";
 
 let token = null;
 
-const setToken = newToken => {
-  token = `Bearer ${newToken}`
-}
+const setToken = (newToken) => {
+  token = `Bearer ${newToken}`;
+};
 
 const getAll = () => {
   const request = axios.get(baseUrl);
@@ -19,8 +19,8 @@ const getAll = () => {
 
 const create = (newObject) => {
   const config = {
-    headers: { Authorization: token }
-  }
+    headers: { Authorization: token },
+  };
   const request = axios.post(baseUrl, newObject, config);
   return request.then((response) => response.data);
 };
@@ -34,5 +34,5 @@ export default {
   getAll,
   create,
   update,
-  setToken
+  setToken,
 };
